@@ -2,7 +2,10 @@ package pl.integracja.book;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebService;
+@WebService(serviceName = "BookManager")
 public class BookManager {
     
     private List<Book> books;
@@ -10,8 +13,8 @@ public class BookManager {
     public BookManager(List<Book> books) {
         this.books = books;
     }
-    
-public List<Book> searchByTitle(String title) {
+@WebMethod(operationName = "byTitle")    
+public List<Book> searchByTitle(@WebParam(name = "title") String title) {
     
     List<Book> szukane = new ArrayList<Book>();
     
@@ -27,8 +30,8 @@ public List<Book> searchByTitle(String title) {
 //    }   
     return szukane; 
 }
-
-public List<Book> searchByAuthor(String author) {
+@WebMethod(operationName = "byAuthor")
+public List<Book> searchByAuthor(@WebParam(name = "author") String author) {
     
     List<Book> szukane = new ArrayList<Book>();
     
@@ -44,8 +47,8 @@ public List<Book> searchByAuthor(String author) {
 //    }   
     return szukane; 
 }
-
-public List<Book> searchByISBN(String isbn) {
+@WebMethod(operationName = "byIsbn")
+public List<Book> searchByISBN(@WebParam(name = "isbn") String isbn) {
     
     List<Book> szukane = new ArrayList<Book>();
     
