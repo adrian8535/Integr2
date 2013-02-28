@@ -22,11 +22,44 @@ public List<Book> searchByTitle(String title) {
         }       
     }
 
-    for (Book b : szukane) {
-        //System.out.println(String.format("%-10d%-10s%-10s%-10s%-10d%-10s%-10d", b.getId(), b.getTitle(), b.getAuthor(), b.getIsbn(), b.getYear(), b.getPublisher(), b.getPages()));   
-    }   
-    return szukane;
+//    for (Book b : szukane) {
+//       System.out.println(String.format("%-10d%-10s%-10s%-10s%-10d%-10s%-10d", b.getId(), b.getTitle(), b.getAuthor(), b.getIsbn(), b.getYear(), b.getPublisher(), b.getPages()));   
+//    }   
+    return szukane; 
+}
+
+public List<Book> searchByAuthor(String author) {
     
+    List<Book> szukane = new ArrayList<Book>();
+    
+    for (Book b : books) {
+        //System.out.println(String.format("%-10d%-10s%-10s%-10s%-10d%-10s%-10d", b.getId(), b.getTitle(), b.getAuthor(), b.getIsbn(), b.getYear(), b.getPublisher(), b.getPages()));
+        if (b.getAuthor().toLowerCase().contains(author.toLowerCase())) {
+            szukane.add(b); 
+        }       
+    }
+
+//    for (Book b : szukane) {
+//       System.out.println(String.format("%-10d%-10s%-10s%-10s%-10d%-10s%-10d", b.getId(), b.getTitle(), b.getAuthor(), b.getIsbn(), b.getYear(), b.getPublisher(), b.getPages()));   
+//    }   
+    return szukane; 
+}
+
+public List<Book> searchByISBN(String isbn) {
+    
+    List<Book> szukane = new ArrayList<Book>();
+    
+    for (Book b : books) {
+        //System.out.println(String.format("%-10d%-10s%-10s%-10s%-10d%-10s%-10d", b.getId(), b.getTitle(), b.getAuthor(), b.getIsbn(), b.getYear(), b.getPublisher(), b.getPages()));
+        if (b.getIsbn().toLowerCase().contains(isbn.toLowerCase())) {
+            szukane.add(b); 
+        }       
+    }
+
+//    for (Book b : szukane) {
+//       System.out.println(String.format("%-10d%-10s%-10s%-10s%-10d%-10s%-10d", b.getId(), b.getTitle(), b.getAuthor(), b.getIsbn(), b.getYear(), b.getPublisher(), b.getPages()));   
+//    }   
+    return szukane; 
 }
 
 }
